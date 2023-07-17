@@ -1,5 +1,10 @@
 <script>
+	import { page } from '$app/stores';
 	import FormInput from '$lib/components/FormInput.svelte';
+	import { nav } from '$lib/stores/nav';
+	import { onMount } from 'svelte';
+
+	onMount(() => ($nav = [{ name: 'Add Model', url: $page.url.pathname }]));
 </script>
 
 <svelte:head>
