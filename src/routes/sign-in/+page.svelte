@@ -34,7 +34,7 @@
 
 		<button
 			on:click={() => signIn('github')}
-			class="mt-16 flex items-center gap-2 rounded-md bg-black px-7 py-3 transition-all hover:scale-125"
+			class="mt-16 flex items-center gap-2 rounded-md bg-black px-7 py-3 transition-all hover:scale-125 active:scale-75 active:bg-gray-700"
 			in:fly={{ x: -100, duration: animationTime, delay: animationTime * 2 }}
 		>
 			<img src={GithubIcon} alt="github" />
