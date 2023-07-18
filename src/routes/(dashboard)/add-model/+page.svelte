@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	import FormInput from '$lib/components/FormInput.svelte';
 	import { nav } from '$lib/stores/nav';
@@ -12,7 +13,7 @@
 	<meta name="description" content="Add a new device model." />
 </svelte:head>
 
-<form action="?/add" method="post" class="mx-auto mt-24 w-fit">
+<form action="?/add" method="post" class="mx-auto mt-24 w-fit" use:enhance>
 	<FormInput required name="name" label="Name" />
 	<FormInput name="gitUrl" label="Git Repo URL" placeholder="https://github.com/user/repo.git" />
 
