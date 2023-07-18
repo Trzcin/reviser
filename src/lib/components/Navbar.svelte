@@ -4,6 +4,8 @@
 	import { signOut } from '@auth/sveltekit/client';
 	import { nav } from '$lib/stores/nav';
 	import { fly } from 'svelte/transition';
+
+	let pathName = decodeURI($page.url.pathname);
 </script>
 
 <nav class="flex items-center justify-between">
@@ -11,8 +13,8 @@
 		<a
 			href="/"
 			class="flex items-center gap-2 text-xl font-semibold transition-colors hover:underline"
-			class:text-indigo-500={$page.url.pathname === '/'}
-			class:dark:text-gray-300={$page.url.pathname !== '/'}
+			class:text-indigo-500={pathName === '/'}
+			class:dark:text-gray-300={pathName !== '/'}
 		>
 			<img src={Favicon} alt="icon" class="h-auto w-6 rounded-md" />
 			Dashboard
@@ -23,8 +25,8 @@
 				<a
 					href={navItem.url}
 					class="ml-4 block text-xl font-semibold hover:underline"
-					class:text-indigo-500={$page.url.pathname === navItem.url}
-					class:dark:text-gray-300={$page.url.pathname !== navItem.url}>{navItem.name}</a
+					class:text-indigo-500={pathName === navItem.url}
+					class:dark:text-gray-300={pathName !== navItem.url}>{navItem.name}</a
 				>
 			</div>
 		{/each}
