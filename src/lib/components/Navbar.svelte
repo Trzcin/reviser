@@ -5,7 +5,7 @@
 	import { nav } from '$lib/stores/nav';
 	import { fly } from 'svelte/transition';
 
-	let pathName = decodeURI($page.url.pathname);
+	$: pathName = decodeURI($page.url.pathname);
 </script>
 
 <nav class="flex items-center justify-between">
