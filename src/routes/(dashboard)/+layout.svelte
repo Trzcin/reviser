@@ -19,11 +19,12 @@
 <div class="container mx-auto mt-6 px-4">
 	<Navbar />
 	{#key data.url}
-		<div
+		<main
+			class="mx-auto mt-24 max-w-5xl"
 			in:fly={{ x: 500 * transitionDir, duration: transitionTime, delay: transitionTime }}
 			out:fly={{ x: -500 * transitionDir, duration: transitionTime }}
 		>
 			<slot />
-		</div>
+		</main>
 	{/key}
 </div>

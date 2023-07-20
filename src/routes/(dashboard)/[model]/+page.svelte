@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { nav } from '$lib/stores/nav.js';
 	import { onMount } from 'svelte';
+	import GithubIcon from '$lib/icons/github-icon.svg';
+	import Section from '$lib/components/Section.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	export let data;
 
@@ -12,7 +15,15 @@
 	<meta name="description" content="See details of the {data.model.name} device model" />
 </svelte:head>
 
-<h1>Viewing the Model Page For {data.model.name}</h1>
+<h1 class="text-3xl font-bold">{data.model.name}</h1>
 {#if data.model.repoUrl}
-	<h1>With Repo Url {data.model.repoUrl}</h1>
+	<a href={data.model.repoUrl} class="mt-4 flex items-center gap-2 underline">
+		<img src={GithubIcon} alt="github" />
+		{data.model.repoUrl}
+	</a>
 {/if}
+
+<Section title="Devices" class="mt-16">
+	<Button link href={`/${data.model.name}/add-device`} class="mx-auto mt-6">Add new Device +</Button
+	>
+</Section>
