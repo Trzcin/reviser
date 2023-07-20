@@ -10,22 +10,22 @@
 		() =>
 			($nav = [
 				{ name: $page.params.model, url: `/${$page.params.model}` },
-				{ name: 'Add Device', url: `/${$page.params.model}/add-device` }
+				{ name: 'Add Version', url: `/${$page.params.model}/add-version` }
 			])
 	);
 </script>
 
 <svelte:head>
-	<title>Reviser - {$page.params.model} - Add Device</title>
-	<meta name="description" content="Add a new device for the {$page.params.mdoel} model." />
+	<title>Reviser - {$page.params.model} - Add Version</title>
+	<meta name="description" content="Add a new version for the {$page.params.mdoel} model." />
 </svelte:head>
 
 <form action="?/add" method="post" class="mx-auto w-fit" use:enhance>
 	<FormInput name="name" label="Name" />
-	<FormInput name="location" label="Location" placeholder="Bydgoszcz, Sienkiewicza 12/3" />
+	<FormInput name="file" label="File" />
 
 	<div class="flex">
 		<Button link href={`/${$page.params.model}`} size="sm" variant="outline">Cancel</Button>
-		<Button submit size="sm" class="ml-4">Add Device +</Button>
+		<Button submit size="sm" class="ml-4">Add Version +</Button>
 	</div>
 </form>

@@ -8,6 +8,27 @@ datasource db {
 }
 
 model Model {
-    name    String  @id
-    repoUrl String?
+    name     String    @id
+    repoUrl  String?
+    versions Version[]
+}
+
+model Version {
+    id           String   @id
+    uploadedDate DateTime @default(now())
+    binaryUrl    String
+    model        Model    @relation(fields: [modelName], references: [name])
+    modelName    String
+    devices      Device[]
+}
+
+model Device {
+    id          String    @id @default(uuid())
+    name        String?
+    token       String
+    lastUpdated DateTime?
+    online      Boolean   @default(false)
+    location    String?
+    version     Version   @relation(fields: [versionId], references: [id])
+    versionId   String
 }
