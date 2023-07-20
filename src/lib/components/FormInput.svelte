@@ -6,7 +6,7 @@
 	export let placeholder = '';
 </script>
 
-<label for={name} class="block font-semibold dark:text-white">{label}</label>
+<label for={name} class="block font-semibold">{label}</label>
 <input
 	type="text"
 	{required}
