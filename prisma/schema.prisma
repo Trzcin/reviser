@@ -11,6 +11,7 @@ model Model {
     name     String    @id
     repoUrl  String?
     versions Version[]
+    devices  Device[]
 }
 
 model Version {
@@ -23,12 +24,13 @@ model Version {
 }
 
 model Device {
-    id          String    @id @default(uuid())
-    name        String?
+    name        String    @id @default(uuid())
     token       String
     lastUpdated DateTime?
     online      Boolean   @default(false)
     location    String?
-    version     Version   @relation(fields: [versionId], references: [id])
-    versionId   String
+    version     Version?  @relation(fields: [versionId], references: [id])
+    versionId   String?
+    model       Model     @relation(fields: [modelId], references: [name])
+    modelId     String
 }

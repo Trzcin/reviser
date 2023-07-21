@@ -27,9 +27,17 @@
 	<Button link href={`/${data.model.name}/add-version`} class="mx-auto mt-6"
 		>Add new Version +</Button
 	>
+
+	{#each data.model.versions as version (version.id)}
+		<p>{version.id}</p>
+	{/each}
 </Section>
 
 <Section title="Devices" class="mt-16">
 	<Button link href={`/${data.model.name}/add-device`} class="mx-auto mt-6">Add new Device +</Button
 	>
+
+	{#each data.model.devices as device (device.name)}
+		<p>{device.name}</p>
+	{/each}
 </Section>
