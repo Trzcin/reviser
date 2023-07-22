@@ -23,3 +23,4 @@
 </svelte:head>
 
 <h1>{data.device.name}</h1>
+<p>{data.device.token}</p>

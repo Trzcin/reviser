@@ -5,6 +5,7 @@
 	import GithubIcon from '$lib/icons/github-icon.svg';
 	import Section from '$lib/components/Section.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import Card from '$lib/components/Card.svelte';
 
 	export let data;
 
@@ -28,10 +29,7 @@
 
 		<div class="mt-6 grid auto-rows-fr grid-cols-3 gap-4">
 			{#each data.models as model (model.name)}
-				<a
-					href={`/${model.name}`}
-					class="block rounded-md bg-gray-800 px-7 py-3 transition-all hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-offset-4 active:scale-90 active:bg-gray-700 dark:focus:ring-offset-gray-900"
-				>
+				<Card href={`/${model.name}`}>
 					<h3 class="text-lg font-semibold">{model.name}</h3>
 					{#if model.repoUrl}
 						<p class="mt-2 flex gap-2">
@@ -39,7 +37,7 @@
 							{model.repoUrl}
 						</p>
 					{/if}
-				</a>
+				</Card>
 			{/each}
 		</div>
 	{/if}
