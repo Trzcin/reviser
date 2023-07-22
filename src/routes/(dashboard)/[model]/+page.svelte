@@ -28,9 +28,31 @@
 		>Add new Version +</Button
 	>
 
-	{#each data.model.versions as version (version.id)}
-		<p>{version.id}</p>
-	{/each}
+	<table class="mt-6 w-full table-auto rounded-md">
+		<thead class="text-left">
+			<tr>
+				<th class="rounded-tl-md bg-indigo-500 px-6 py-3">Name</th>
+				<th class="bg-indigo-500 px-6 py-3">Upload Date</th>
+				<th class="rounded-tr-md bg-indigo-500 px-6 py-3">File</th>
+			</tr>
+		</thead>
+		<tbody>
+			{#each data.model.versions as version, i (version.id)}
+				{@const urlSplit = version.binaryUrl.split('/')}
+				<tr>
+					<td class="px-6 py-3" class:bg-gray-700={i % 2 == 1} class:bg-gray-800={i % 2 == 0}
+						>{version.id}</td
+					>
+					<td class=" px-6 py-3" class:bg-gray-700={i % 2 == 1} class:bg-gray-800={i % 2 == 0}
+						>{version.uploadedDate.toLocaleString()}</td
+					>
+					<td class="px-6 py-3" class:bg-gray-700={i % 2 == 1} class:bg-gray-800={i % 2 == 0}
+						><a href={version.binaryUrl} class="underline">{urlSplit[urlSplit.length - 1]}</a></td
+					>
+				</tr>
+			{/each}
+		</tbody>
+	</table>
 </Section>
 
 <Section title="Devices" class="mt-16">
