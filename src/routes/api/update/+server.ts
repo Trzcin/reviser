@@ -27,11 +27,11 @@ export async function GET({ request }) {
 
 	await db.device.update({
 		where: { name: device.name },
-		data: { version: { connect: { id: newestVersion.id } } }
+		data: { version: { connect: { id: newestVersion.id } }, lastUpdated: new Date() }
 	});
 
 	// todo send file
-	const filePath = newestVersion.binaryUrl.slice(1);
+	const filePath = decodeURI(newestVersion.binaryUrl.slice(1));
 	const data = readFileSync(filePath);
 	return new Response(data, { status: 200 });
 }

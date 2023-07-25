@@ -10,5 +10,7 @@ export async function load({ params }) {
 		throw error(404, { message: `Model ${params.model} could not be found` });
 	}
 
+	model.versions.sort((m1, m2) => m2.uploadedDate.getTime() - m1.uploadedDate.getTime());
+
 	return { model };
 }

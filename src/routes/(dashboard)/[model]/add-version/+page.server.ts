@@ -1,5 +1,5 @@
 import { db } from '$lib/prisma.js';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { writeFileSync } from 'fs';
 
 export const actions = {
@@ -28,5 +28,7 @@ export const actions = {
 				}
 			}
 		});
+
+		throw redirect(303, `/${params.model}`);
 	}
 };

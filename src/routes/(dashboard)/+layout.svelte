@@ -16,7 +16,7 @@
 	}
 </script>
 
-<div class="container mx-auto mt-6 px-4">
+<div class="container mx-auto my-6 px-4">
 	<Navbar />
 	{#key data.url}
 		<main
